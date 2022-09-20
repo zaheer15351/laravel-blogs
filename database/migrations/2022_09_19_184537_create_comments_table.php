@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('author_id')->nullable();
             $table->foreign('author_id')->references('id')->on('users')->cascadeOnDelete(); // if user is deleted, corresponding comments will also be deleted.
-            $table->foreignIdFor(Blog::class)->constrained();
+            $table->foreignIdFor(Blog::class)->constrained()->cascadeOnDelete();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->text('body');
             $table->timestamps();

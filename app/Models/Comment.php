@@ -18,9 +18,9 @@ class Comment extends Model
         'body',
     ];
 
-    public function user(): BelongsTo
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(User::class);
     }
 
     public function blog(): BelongsTo

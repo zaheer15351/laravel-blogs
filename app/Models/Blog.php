@@ -18,9 +18,9 @@ class Blog extends Model
         'author_id',
     ];
 
-    public function user(): BelongsTo
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(User::class);
     }
 
     public function comments(): HasMany

@@ -3,7 +3,8 @@
 namespace App\Repositories;
 
 
-
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class BaseRepository implements BaseRepositoryInterface
@@ -12,8 +13,7 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function __construct(
         Model $model
-    )
-    {
+    ) {
         $this->model = $model;
     }
 
@@ -32,4 +32,27 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->factory();
     }
 
+    public function all(array $columns = ['*'], array $relations = []): Builder
+    {
+        return $this->model->select($columns)->with($relations);
+    }
+
+    public function findById(
+        int $modelId,
+        array $columns = ['*'],
+        array $relations = [],
+        array $appends = []
+    ): ?Model {
+        return $this->model->select($columns)->with($relations)->findOrFail($modelId)->append($appends);
+    }
+
+    public function deleteById(int $modelId): bool
+    {
+        return $this->findById($modelId)->delete();
+    }
+
+    public function updateWithCondition(array $condition, array $data): int
+    {
+        return $this->model->where($condition)->update($data);
+    }
 }
