@@ -7,6 +7,13 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## About Blogs and Comments
+
+This application used [Laravel sail](https://laravel.com/docs/9.x/sail#main-content) to run locally.
+
+You should run `sail artisan migrate:fresh --seed` command to create a default admin user along with basic factory data.
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
