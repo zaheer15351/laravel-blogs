@@ -13,6 +13,10 @@ This application used [Laravel sail](https://laravel.com/docs/9.x/sail#main-cont
 
 You should run `sail artisan migrate:fresh --seed` command to create a default admin user along with basic factory data.
 
+Admin login credentials:
+Email: zaheer15351@gmail.com
+Password: some-password
+
 
 ## About Laravel
 
